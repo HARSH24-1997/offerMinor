@@ -1,34 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PanelComponent } from './panel/panel.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PanelComponent
+    // PanelComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     LoginModule,
-    BrowserAnimationsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
+    // BrowserAnimationsModule,
+    // LayoutModule,
+    // MatToolbarModule,
+    // MatButtonModule,
+    // MatSidenavModule,
+    // MatIconModule,
+    // MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

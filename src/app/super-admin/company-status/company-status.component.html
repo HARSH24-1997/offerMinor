@@ -1,6 +1,6 @@
 <div>
   <div>
-  <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg"
+  <!-- <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg"
     aria-label=".form-control-lg example">
   </div>
   <br>
@@ -13,11 +13,11 @@
       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
       <label class="form-check-label" for="inlineRadio2">2</label>
     </div>
-  </div>
-  <div>
+  </div> -->
+  <div class="container m-5 p-5">
     <table class="table">
       <thead>
-        <tr>
+        <tr class=" table-dark">
           <th scope="col">#</th>
           <th scope="col">Company Name</th>
           <th scope="col">Active Status</th>
@@ -26,11 +26,16 @@
         </tr>
       </thead>
       <tbody class="table-group-divider">
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+        <tr *ngFor="let data of companies; let i=index;">
+          <th scope="row">{{i+1}}</th>
+          <td>{{data.companyName}}</td>
+          <td>{{data.isActive==true?"Active":"InActive"}}</td>
+          <td>{{data.email}}</td>
+          <td>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
