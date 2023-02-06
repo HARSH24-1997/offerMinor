@@ -1,43 +1,44 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {BehaviorSubject} from 'rxjs';
+import { tap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
+  signedIn = new BehaviorSubject(false);
+  superAdmin = new BehaviorSubject(false);
+
   constructor(private http: HttpClient) { }
 
   login(data:any){
-    console.log(data.userName,data.password,"service")
      return this.http.post('http://localhost:9000/auth/login',{
       username:data.userName,
       password:data.password
-    })
-
-  }
-
-  signup(username:String,password:String){
-    console.log(username,password)
-    // return this.http.get('http://localhost:9000/',{
-    
-    // })
-
-  }
-
-  userLogin(){
-
+    },{
+      withCredentials:true
+    }).pipe(tap((val:any)=>{
+      if(val.isSuperAdmin){
+        this.superAdmin.next(true);
+      }
+      this.signedIn.next(true)
+    }))
   }
 
   logOut(){
 
   }
 
-  isActive(){
-
-  }
-
-  isSuperAdmin(){
-    
+  getMe(value:string){
+     return this.http.get('http://localhost:9000/user/getMe',{
+      headers:{
+        "Authorization":"Bearer " + value
+      },withCredentials:true
+     }).pipe(tap((val:any)=>{
+      localStorage.setItem('user',JSON.stringify(val));
+    }))
   }
 }

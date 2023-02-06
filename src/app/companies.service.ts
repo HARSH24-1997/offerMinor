@@ -27,7 +27,9 @@ export class CompaniesService {
   }
 
   getAllCompanies() {
-    return this.Http.get('http://localhost:9000/user/getAll')
+    return this.Http.get('http://localhost:9000/user/getAll',{
+      withCredentials:true
+    })
   }
 
   getCompanyById(query: any) {

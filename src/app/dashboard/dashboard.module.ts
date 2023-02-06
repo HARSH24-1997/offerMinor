@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { UserCreationComponent } from './user-creation/user-creation.component';
@@ -7,6 +9,8 @@ import { ReportsComponent } from './reports/reports.component';
 import { EmployessComponent } from './employess/employess.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ImportExportsComponent } from './import-exports/import-exports.component';
+import { ViewComponentComponent } from './view-component/view-component.component';
+import { PanCardDetailsComponent } from './pan-card-details/pan-card-details.component';
 
 
 @NgModule({
@@ -15,10 +19,13 @@ import { ImportExportsComponent } from './import-exports/import-exports.componen
     ReportsComponent,
     EmployessComponent,
     ProfileComponent,
-    ImportExportsComponent
+    ImportExportsComponent,
+    ViewComponentComponent,
+    PanCardDetailsComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     DashboardRoutingModule
   ]
 })

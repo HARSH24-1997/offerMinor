@@ -23,7 +23,7 @@ export class UserCreationPanelComponent {
     email: new FormControl('',[
       Validators.required,
       Validators.minLength(3),
-      Validators.maxLength(20)
+      Validators.maxLength(40)
     ]),
     subdomain: new FormControl('',[
       Validators.required,
@@ -43,6 +43,7 @@ export class UserCreationPanelComponent {
 
   onFormSubmit = (event:any)=>{
     event.preventDefault();
+    console.log("press")
     if(this.companyForm.status=="VALID"){
       this.CompanyService.createComapany(this.companyForm.value).subscribe(resp=>{
         console.log(resp);
