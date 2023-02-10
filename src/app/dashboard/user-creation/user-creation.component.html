@@ -10,13 +10,18 @@
             <input type="text" class="form-control" id="name" aria-describedby="emailHelp"  formControlName="name">
           </div>
           <div class="col-md-4">
-            <label for="empCode" class="form-label">Code</label>
+            <label for="code" class="form-label">Code</label>
             <input type="text" class="form-control" id="code" aria-describedby="emailHelp"  formControlName="code">
           </div>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp"  formControlName="email">
+            <!-- <div id="emailHelp" class="form-text">Password and Username Will be Share on this email</div> -->
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Mobile No.</label>
+            <input type="number" class="form-control" id="phone" aria-describedby="emailHelp"  formControlName="phone">
             <!-- <div id="emailHelp" class="form-text">Password and Username Will be Share on this email</div> -->
           </div>
           <div class="row mb-3">
@@ -29,6 +34,7 @@
             <input type="date" class="form-control" id="dateOfJoining" aria-describedby="emailHelp" formControlName="dateOfJoining">
           </div>
           </div>
+          <label for="status" class="form-label">Status</label>
           <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" formControlName="status">
             <!-- <option selected>Status Of Employee</option> -->
             <option value="1" selected>Offer Accepted</option>

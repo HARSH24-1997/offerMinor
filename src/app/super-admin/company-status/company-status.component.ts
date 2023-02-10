@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CompaniesService } from 'src/app/companies.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-company-status',
@@ -10,20 +11,22 @@ export class CompanyStatusComponent {
 
   companies:any=[];
 
-  constructor(private companyService:CompaniesService){
+  constructor(private companyService:CompaniesService){}
+
+  ngOnInit(){
     this.getAllCompanies()
   }
 
   getAllCompanies(){
     this.companyService.getAllCompanies().subscribe((resp: any)=>{
-      console.log(resp,"19");
       this.companies = resp.users;
-      console.log(this.companies,"21")
     })
   }
 
-  updateCompanyById(query:any,id:String){
-    // this.companyService.updateCompanyInformation()
+  updateCompanyById(event:any,data:any){
+    this.companyService.updateCompanyInformation(data._id,!data.isActive).subscribe((resp:any)=>{
+      console.log("3343434",resp)
+    })
   }
 
   getCompanyById(id:String){

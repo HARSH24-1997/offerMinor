@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ImportExportsComponent } from './import-exports/import-exports.component';
 import { ViewComponentComponent } from './view-component/view-component.component';
 import { PanCardDetailsComponent } from './pan-card-details/pan-card-details.component';
+import { ModalUpdateComponent } from './modal-update/modal-update.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PanCardDetailsComponent } from './pan-card-details/pan-card-details.com
     ProfileComponent,
     ImportExportsComponent,
     ViewComponentComponent,
-    PanCardDetailsComponent
+    PanCardDetailsComponent,
+    ModalUpdateComponent
   ],
   imports: [
     CommonModule,

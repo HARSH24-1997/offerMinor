@@ -7,11 +7,14 @@ import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
+import { HomepageComponent } from './homepage/homepage.component';
+import { SuperAdminModule } from './super-admin/super-admin.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomepageComponent,
     // PanelComponent
   ],
   imports: [
@@ -20,6 +23,7 @@ import { LoginModule } from './login/login.module';
     ReactiveFormsModule,
     AppRoutingModule,
     LoginModule,
+    SuperAdminModule,
     // BrowserAnimationsModule,
     // LayoutModule,
     // MatToolbarModule,

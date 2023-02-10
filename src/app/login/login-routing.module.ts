@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ViewComponent } from './view/view.component';
 const routes: Routes = [
-  { path: 'login', component: ViewComponent }
-
+  { path: '', component: ViewComponent }
 ];
 
 @NgModule({

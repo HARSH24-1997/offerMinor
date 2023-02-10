@@ -17,7 +17,7 @@ export class EmployeesService {
       panCardId:'',
       company_id:'',
       companyName:'',
-      mobile:'',
+      phone:'',
       status:'',
       dateOfJoining:'',
       dateOfOffer:'',
@@ -30,7 +30,7 @@ export class EmployeesService {
     result.panCardId = query.panCardId;
     result.company_id =JSON.parse(localStorage.getItem('user') as string)._id
     result.companyName = JSON.parse(localStorage.getItem('user') as string).companyName;
-    result.mobile = query.mobile;
+    result.phone = query.phone;
     result.status = query.status;
     result.dateOfJoining = query.dateOfJoining;
     result.dateOfOffer = query.dateOfOffer;

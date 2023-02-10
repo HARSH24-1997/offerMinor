@@ -1,8 +1,10 @@
 import { Component,OnInit,Output,EventEmitter } from '@angular/core';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { FormGroup,FormControl,Validators,ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import {Location} from '@angular/common';
+
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -29,7 +31,7 @@ export class ViewComponent {
   }) 
   
 
-  constructor (private AuthService:AuthenticationService,private router:Router,private cookieService:CookieService){}
+  constructor (private _location: Location,private route: ActivatedRoute,private AuthService:AuthenticationService,private router:Router,private cookieService:CookieService){}
 
   onFormSubmit = (event:any)=>{
     event.preventDefault();
@@ -40,18 +42,17 @@ export class ViewComponent {
       next:(response:any)=>{
         localStorage.setItem('token',response.token)
         this.cookieService.set('jwttt',response.token);
-        if(response.isSuperAdmin){
-          this.router.navigateByUrl('/sAdmin');
+        if (response.isSuperAdmin) {
+          window.location.assign("http://localhost:4200/sAdmin")
         }
-        else{
-          this.router.navigateByUrl('/dashboard');
-        }
+        else {
+          window.location.assign("http://localhost:4200/dashboard")
+        }         
       },
       complete:()=>{
-        this.AuthService.getMe(this.cookieService.get('jwttt')).subscribe({})
       },
       error:(err)=>{
-
+        this.router.navigateByUrl('/login');
       }  
     })
   }

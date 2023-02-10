@@ -44,8 +44,12 @@ export class CompaniesService {
     return this.Http.post('http://localhost:9000/user', companyStructure)
   }
 
-  updateCompanyInformation(query: any) {
-    return this.Http.put('http://localhost:9000/user', query)
+  updateCompanyInformation(_id:any,status:any) {
+    return this.Http.put('http://localhost:9000/user/updateStatus', {_id:_id,isActive:status}, {
+      headers: {
+        "Authorization": "Bearer " +  localStorage.getItem('token')
+      }, withCredentials: true
+    })
   }
 
 }

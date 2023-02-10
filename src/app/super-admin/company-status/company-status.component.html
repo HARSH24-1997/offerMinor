@@ -1,28 +1,13 @@
 <div>
-  <div>
-  <!-- <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg"
-    aria-label=".form-control-lg example">
-  </div>
-  <br>
-  <div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-      <label class="form-check-label" for="inlineRadio1">1</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-      <label class="form-check-label" for="inlineRadio2">2</label>
-    </div>
-  </div> -->
   <div class="container m-5 p-5">
     <table class="table">
       <thead>
         <tr class=" table-dark">
           <th scope="col">#</th>
           <th scope="col">Company Name</th>
-          <th scope="col">Active Status</th>
+          <th scope="col">Juke</th>
           <th scope="col">Username</th>
-          <th scope="col">Updation</th>
+          <th scope="col">Active Status</th>
         </tr>
       </thead>
       <tbody class="table-group-divider">
@@ -33,11 +18,10 @@
           <td>{{data.email}}</td>
           <td>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="data.isActive" (change)="updateCompanyById($event,data)">
             </div>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-</div>

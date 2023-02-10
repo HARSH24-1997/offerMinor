@@ -23,6 +23,10 @@ export class UserCreationComponent {
     code: new FormControl('',[
     
     ]),
+    phone: new FormControl('',[
+      Validators.required,
+      Validators.minLength(10)
+    ]),
     email: new FormControl('',[
       Validators.required,
       Validators.minLength(3),
