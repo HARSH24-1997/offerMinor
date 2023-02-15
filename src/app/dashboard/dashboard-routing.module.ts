@@ -5,6 +5,8 @@ import { EmployessComponent } from './employess/employess.component';
 import { UserCreationComponent } from './user-creation/user-creation.component';
 import { ReportsComponent } from './reports/reports.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ModalUpdateComponent } from './modal-update/modal-update.component';
+import { AlertCompanyComponent } from './alert-company/alert-company.component';
 
 const routes: Routes = [
   {
@@ -14,6 +16,8 @@ const routes: Routes = [
           { path: 'addEmployees', component: UserCreationComponent },
           { path: 'report', component: ReportsComponent },
           { path: 'Profile', component: ProfileComponent },
+          { path: 'update/:id', component: ModalUpdateComponent },
+          { path: 'alert', component: AlertCompanyComponent },
       ]
   }
 ];

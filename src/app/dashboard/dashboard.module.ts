@@ -12,6 +12,7 @@ import { ImportExportsComponent } from './import-exports/import-exports.componen
 import { ViewComponentComponent } from './view-component/view-component.component';
 import { PanCardDetailsComponent } from './pan-card-details/pan-card-details.component';
 import { ModalUpdateComponent } from './modal-update/modal-update.component';
+import { AlertCompanyComponent } from './alert-company/alert-company.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ModalUpdateComponent } from './modal-update/modal-update.component';
     ImportExportsComponent,
     ViewComponentComponent,
     PanCardDetailsComponent,
-    ModalUpdateComponent
+    ModalUpdateComponent,
+    AlertCompanyComponent
   ],
   imports: [
     CommonModule,

@@ -1,17 +1,81 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+<div class="py-5" style="background-color: #FFEDE1;">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-lg-6 col-10 shadow p-5" style="background-color: white">
+        <h1 class="text-center">Employee Updation </h1>
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit($event)" *ngIf="this.employeeForm">
+          <!-- <form> -->
+          <div class="row mb-3">
+            <div class="col-md-8">
+              <label for="name" class="form-label"> Name</label>
+              <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
+                [formControl]="$any(employeeForm.get('name'))">
+            </div>
+            <div class="col-md-4">
+              <label for="code" class="form-label">Code</label>
+              <input type="text" class="form-control" id="code" aria-describedby="emailHelp"
+                [formControl]="$any(employeeForm.get('code'))">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                [formControl]="$any(employeeForm.get('email'))">
+            </div>
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Mobile No.</label>
+              <input type="number" class="form-control" id="phone" aria-describedby="emailHelp"
+                [formControl]="$any(employeeForm.get('phone'))">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="" class="form-label">Date Of Offer</label>
+              <input type="date" class="form-control" id="subdomain1" aria-describedby="emailHelp"
+                [formControl]="$any(employeeForm.get('dateOfOffer'))">
+            </div>
+            <div class="col-md-6">
+              <label for="dateOfJoining" class="form-label">Date Of Joining</label>
+              <input type="date" class="form-control" id="dateOfJoining" aria-describedby="emailHelp"
+                [formControl]="$any(employeeForm.get('dateOfJoining'))">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="status" class="form-label">Status</label>
+              <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example"
+                [formControl]="$any(employeeForm.get('status'))">
+                <!-- <option selected>Status Of Employee</option> -->
+                <option value="1" selected>Offer Accepted</option>
+                <option value="2">Offer Rejected</option>
+                <option value="3">Joined</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="Remarks" class="form-label">Remarks</label>
+              <input type="text" class="form-control" id="Remarks" aria-describedby="emailHelp"
+                [formControl]="$any(employeeForm.get('remarks'))">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="panCardId" class="form-label">Pan Card No</label>
+              <input type="text" class="form-control" id="panCardId" aria-describedby="emailHelp"
+                [formControl]="$any(employeeForm.get('panCardId'))">
+              <div id="emailHelp" class="form-text">Unique Identification Pan Card No.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="aadharCardId" class="form-label">Aadhar Card No</label>
+              <input type="text" class="form-control" id="aadharCardId" aria-describedby="emailHelp"
+                [formControl]="$any(employeeForm.get('aadharCardId'))">
+              <div id="emailHelp" class="form-text">Unique Identification Aadhar Card No.</div>
+            </div>
+          </div>
+          <button type="submit" class="btn " style="background-color: #FFDDC7;color:#FF8730">Update Employee</button>
+          <!-- <button type="submit" class="btn mx-3" style="background-color: #FFDDC7;color:#FF8730">Add Employee</button> -->
+        </form>
       </div>
     </div>
   </div>
+</div>

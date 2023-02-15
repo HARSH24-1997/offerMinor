@@ -35,6 +35,11 @@ export class UserCreationPanelComponent {
       Validators.minLength(3),
       Validators.maxLength(20)
     ]),
+    phone: new FormControl('',[
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(10)
+    ]),
     isActivate: new FormControl('')
   })
   

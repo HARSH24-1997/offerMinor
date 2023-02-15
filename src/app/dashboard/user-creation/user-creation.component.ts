@@ -13,7 +13,6 @@ export class UserCreationComponent {
   isLogin:Boolean = false;
   // isSuperAdmin:Boolean = localStorage.get('isSuperAdmin');
 
-
   employeeForm = new FormGroup({
     name: new FormControl('',[
       Validators.required,
@@ -30,24 +29,25 @@ export class UserCreationComponent {
     email: new FormControl('',[
       Validators.required,
       Validators.minLength(3),
-      Validators.maxLength(20)
+      Validators.maxLength(25)
     ]),
     panCardId: new FormControl('',[
       Validators.required,
       Validators.minLength(3),
       Validators.maxLength(20)
     ]),
+    aadharCardId: new FormControl('',[
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(20)
+    ]),
     dateOfOffer: new FormControl('',[
-      // Validators.required,
-      // Validators.minLength(3),
-      // Validators.maxLength(20)
     ]),
     dateOfJoining: new FormControl('',[
-      // Validators.required,
-      // Validators.minLength(3),
-      // Validators.maxLength(20)
     ]),
     status: new FormControl('',[
+    ]),
+    Remarks: new FormControl('',[
     ]),
     isActivate: new FormControl('')
   })

@@ -14,16 +14,16 @@
             <input type="text" class="form-control" id="code" aria-describedby="emailHelp"  formControlName="code">
           </div>
           </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"  formControlName="email">
-            <!-- <div id="emailHelp" class="form-text">Password and Username Will be Share on this email</div> -->
-          </div>
-          <div class="mb-3">
-            <label for="phone" class="form-label">Mobile No.</label>
-            <input type="number" class="form-control" id="phone" aria-describedby="emailHelp"  formControlName="phone">
-            <!-- <div id="emailHelp" class="form-text">Password and Username Will be Share on this email</div> -->
-          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp"  formControlName="email">
+            </div>
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Mobile No.</label>
+              <input type="number" class="form-control" id="phone" aria-describedby="emailHelp"  formControlName="phone">
+            </div>
+            </div>
           <div class="row mb-3">
           <div class="col-md-6">
             <label for="" class="form-label">Date Of Offer</label>
@@ -34,20 +34,35 @@
             <input type="date" class="form-control" id="dateOfJoining" aria-describedby="emailHelp" formControlName="dateOfJoining">
           </div>
           </div>
-          <label for="status" class="form-label">Status</label>
-          <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" formControlName="status">
-            <!-- <option selected>Status Of Employee</option> -->
-            <option value="1" selected>Offer Accepted</option>
-            <option value="2">Offer Rejected</option>
-            <option value="3">Joined</option>
-          </select>
-          <div class="mb-3">
-            <label for="panCardId" class="form-label">Pan Card No</label>
-            <input type="text" class="form-control" id="panCardId" aria-describedby="emailHelp"  formControlName="panCardId">
-            <div id="emailHelp" class="form-text">Unique Identification Pan Card No.</div>
-          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="status" class="form-label">Status</label>
+              <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" formControlName="status">
+                <option value="1" >Offer Accepted</option>
+                <option value="2">Offer Rejected</option>
+                <option value="3">Joined</option>
+                <option value="4">Joined & Leave</option>
+                <option value="5">Abscord</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="Remarks" class="form-label">Remarks</label>
+              <input type="text" class="form-control" id="Remarks" aria-describedby="emailHelp" formControlName="Remarks">
+            </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="panCardId" class="form-label">Pan Card No</label>
+                <input type="text" class="form-control" id="panCardId" aria-describedby="emailHelp"  formControlName="panCardId">
+                <div id="emailHelp" class="form-text">Unique Identification Pan Card No.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="aadharCardId" class="form-label">Aadhar Card No</label>
+                <input type="text" class="form-control" id="aadharCardId" aria-describedby="emailHelp"  formControlName="aadharCardId">
+                <div id="emailHelp" class="form-text">Unique Identification Aaghar Card No.</div>
+              </div>
+            </div>
           <button type="submit" class="btn " style="background-color: #FFDDC7;color:#FF8730">Add Employee</button>
-          <!-- <button type="submit" class="btn mx-3" style="background-color: #FFDDC7;color:#FF8730">Add Employee</button> -->
         </form>
       </div>
     </div>

@@ -31,7 +31,6 @@ export class CompanyStatusComponent {
 
   getCompanyById(id:String){
     this.companyService.getCompanyById(id).subscribe((resp:any)=>{
-      
     })
   }
 

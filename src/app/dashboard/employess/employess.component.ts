@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { EmployeesService } from 'src/app/employees.service';
 
 @Component({
@@ -7,11 +8,31 @@ import { EmployeesService } from 'src/app/employees.service';
   styleUrls: ['./employess.component.css']
 })
 export class EmployessComponent {
+
   employees:any=[];
-  constructor(private employeeService:EmployeesService){}
+  constructor(private router:Router,private employeeService:EmployeesService){}
 
   ngOnInit(){
     this.getAllEmployees()
+  }
+
+  status(val:any):String{
+    if(val==1){
+      return "Offer Accepted"
+    }
+    if(val==2){
+      return "Offer Rejected"
+    }
+    if(val==3){
+      return "Joined"
+    }
+    if(val==4){
+      return "Joined and Leave"
+    }
+    if(val==5){
+      return "Abscord"
+    }
+    return "Offer Accepted"
   }
 
   getAllEmployees(){
@@ -21,15 +42,8 @@ export class EmployessComponent {
     })
   }
 
-  // updateCompanyById(query:any,id:String){
-  //   // this.companyService.updateCompanyInformation()
-  // }
-
-  // getCompanyById(id:String){
-  //   this.employeeService.getCompanyById(id).subscribe((resp:any)=>{
-      
-  //   })
-  // }
-
-
+  openUpdate(data:any){
+    console.log(data._id);
+    this.router.navigateByUrl(`dashboard/update/${data._id}`)
+  }
 }

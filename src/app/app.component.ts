@@ -40,9 +40,11 @@ export class AppComponent {
   }
 
   logOut(){
+    this.cookieService.deleteAll()
+    this.cookieService.delete('jwttt');
     this.authService.logOut().subscribe(()=>{
-      this.cookieService.deleteAll()
       this.router.navigateByUrl('/login');
+
     })
   }
 }

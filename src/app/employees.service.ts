@@ -12,9 +12,12 @@ export class EmployeesService {
 
   validateEmployeeData = function(query:any){
     var result = {
+      id:'',
       name:'',
       email:'',
+      code:'',
       panCardId:'',
+      aadharCardId:'',
       company_id:'',
       companyName:'',
       phone:'',
@@ -22,20 +25,29 @@ export class EmployeesService {
       dateOfJoining:'',
       dateOfOffer:'',
       createdBy:'',
-      // createdBy:localStorage.get('User'),
+      remarks:'',
       isActive:false,
+      companyDetails:{
+        email:''
+      }
     };
     result.name = query.name;
     result.email = query.email;
     result.panCardId = query.panCardId;
+    result.code = query.code;
+    result.aadharCardId = query.aadharCardId;
     result.company_id =JSON.parse(localStorage.getItem('user') as string)._id
     result.companyName = JSON.parse(localStorage.getItem('user') as string).companyName;
     result.phone = query.phone;
     result.status = query.status;
+    result.remarks = query.Remarks;
     result.dateOfJoining = query.dateOfJoining;
     result.dateOfOffer = query.dateOfOffer;
     result.isActive = query.isActive;
-
+    result.createdBy = JSON.parse(localStorage.getItem('user') as string)._id
+    result.companyDetails = {
+      email:JSON.parse(localStorage.getItem('user') as string).email
+    }
     return result
   }
 
@@ -48,8 +60,11 @@ export class EmployeesService {
   }
 
   getEmployeeById(query: any) {
-    return this.Http.get('http://localhost:9000/employee', {
-      params: query
+    console.log(query)
+    return this.Http.get(`http://localhost:9000/employee/getById`,{
+      params:{
+        id:query.id
+      }
     })
   }
 
@@ -58,7 +73,12 @@ export class EmployeesService {
     return this.Http.post('http://localhost:9000/employee', companyStructure)
   }
 
-  updateEmployeeInformation(query: any) {
-    return this.Http.put('http://localhost:9000/employee', query)
+  updataEmployeeById(query: any,id:string,cname:string,c_id:string,email:string) {
+    var companyStructure = this.validateEmployeeData(query);
+    companyStructure.id = id;
+    companyStructure.company_id=c_id
+    companyStructure.companyName=cname
+    companyStructure.companyDetails.email=email
+    return this.Http.put('http://localhost:9000/employee/updateUser', companyStructure)
   }
 }
