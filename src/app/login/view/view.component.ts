@@ -12,7 +12,6 @@ import {Location} from '@angular/common';
 })
 
 export class ViewComponent {
-  // @Output() submitted = new EventEmitter<any>(); //type
 
   status:String = "";
   isLogin:Boolean = false;
@@ -28,18 +27,23 @@ export class ViewComponent {
       Validators.minLength(3),
       Validators.maxLength(20)
     ])
-  }) 
-  
+  })
 
-  constructor (private _location: Location,private route: ActivatedRoute,private AuthService:AuthenticationService,private router:Router,private cookieService:CookieService){}
+  constructor (private _location: Location,
+    private route: ActivatedRoute,
+    private AuthService:AuthenticationService,
+    private router:Router,private cookieService:CookieService)
+    {}
 
   onFormSubmit = (event:any)=>{
     event.preventDefault();
     if(this.authForm.invalid){
+      this.authForm.setErrors({ incorrect: true }); 
       return ;
     }
     this.AuthService.login(this.authForm.value).subscribe({
       next:(response:any)=>{
+        console.log(response)
         localStorage.setItem('token',response.token)
         this.cookieService.set('jwttt',response.token);
         if (response.isSuperAdmin) {
@@ -52,6 +56,15 @@ export class ViewComponent {
       complete:()=>{
       },
       error:(err)=>{
+        if(err.status=="0"){
+          this.authForm.setErrors({ server: true });
+        }
+        if(err.status=="400"){
+          this.authForm.setErrors({ incorrect: true });
+        }
+        if(err.status=="404"){
+          this.authForm.setErrors({ inActive: true });
+        }
         this.router.navigateByUrl('/login');
       }  
     })

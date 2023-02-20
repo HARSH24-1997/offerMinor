@@ -1,33 +1,59 @@
 <div class="container-fluid" style="height:100vh">
     <div class="row" style="height:100vh">
-        <div class="col-md-6 m-auto" >
+        <div class="col-md-6 m-auto">
             <div class=" container-fluid shadow p-5 " style="width: 60%;">
                 <h3 class="text-center">LOGIN</h3>
                 <div class="container">
-                <form class="text-left" [formGroup]="authForm" (ngSubmit)="onFormSubmit($event)">
-                    <div class="form-group">
-                        <label for="form16">User Name</label>
-                        <input type="text" class="form-control" id="form1" placeholder="Username" formControlName="userName">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="form16">Password</label>
-                        <input type="password" class="form-control" id="form2" placeholder="••••" formControlName="password">
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-dark float-right">Sign in</button>
-                </form>
-            </div>
+                    <form class="text-left" [formGroup]="authForm" (ngSubmit)="onFormSubmit($event)">
+                        <div class="form-group">
+                            <label for="form16">User Name</label>
+                            <input type="text" class="form-control" id="form1" placeholder="Username"
+                                formControlName="userName">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="form16">Password</label>
+                            <input type="password" class="form-control" id="form2" placeholder="••••"
+                                formControlName="password">
+                        </div>
+                        <br>
+                        <ng-container *ngIf="
+                    authForm.get('userName')!.touched &&
+                    authForm.get('password')!.touched &&
+                    authForm.errors
+                  ">
+                            <div class="alert alert-danger" role="alert" *ngIf="authForm.errors?.['server']">
+                               Please Contact ThePeopleOrder Team
+                            </div>
+                            <div class="alert alert-danger" role="alert" *ngIf="authForm.errors?.['incorrect']">
+                                Incorrect Username or Password
+                             </div>
+                             <div class="alert alert-danger" role="alert" *ngIf="authForm.errors?.['inActive']">
+                                User is Inactive By thePeopleOrder
+                             </div>
+                        </ng-container>
+                        <ng-container *ngIf="authForm.get('userName')!.touched && authForm.get('password')!.touched">
+                            <div class="alert alert-danger" role="alert"
+                                *ngIf="authForm.controls.userName.errors && authForm.controls.userName.errors">
+                                Invalid Username or Password
+                            </div>
+                        </ng-container>
+                        <button type="submit" class="btn btn-dark float-right">Sign in</button>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="col-md-6 position-relative shadow" style="background-color: #FFEDE1; border-color:#FF8730 ;">
             <div class="position-absolute top-50 translate-middle-y container-fluid">
                 <h1>Offer Mirror</h1>
                 <p class="mb-3">Recruitment Telescope</p>
-                <p class="mb-3 text-wrap " style=" word-wrap: break-word;">A telescopic view for recruiters to check candidates history and candidates feedback</p>
+                <p class="mb-3 text-wrap " style=" word-wrap: break-word;">A telescopic view for recruiters to check
+                    candidates history and candidates feedback</p>
                 <div>
-                    <button type="submit" class="btn mb-3" style="background-color: #FFDDC7;color:#FF8730">Contact Us</button>
-                    <button type="submit" class="btn mb-3 mx-3" style="background-color: #FFDDC7;color:#FF8730">Refer Us</button>
+                    <button type="submit" class="btn mb-3" style="background-color: #FFDDC7;color:#FF8730">Contact
+                        Us</button>
+                    <button type="submit" class="btn mb-3 mx-3" style="background-color: #FFDDC7;color:#FF8730">Visit
+                        Us</button>
                 </div>
                 <div>
 

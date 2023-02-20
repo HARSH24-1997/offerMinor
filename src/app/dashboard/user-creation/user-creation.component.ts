@@ -37,7 +37,7 @@ export class UserCreationComponent {
       Validators.maxLength(20)
     ]),
     aadharCardId: new FormControl('',[
-      Validators.required,
+      // Validators.required,
       Validators.minLength(3),
       Validators.maxLength(20)
     ]),

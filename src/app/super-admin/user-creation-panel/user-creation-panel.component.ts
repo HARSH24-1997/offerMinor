@@ -48,12 +48,25 @@ export class UserCreationPanelComponent {
 
   onFormSubmit = (event:any)=>{
     event.preventDefault();
-    console.log("press")
-    if(this.companyForm.status=="VALID"){
-      this.CompanyService.createComapany(this.companyForm.value).subscribe(resp=>{
-        console.log(resp);
-      })
+    if(this.companyForm.invalid){
+      this.companyForm.setErrors({ incorrect: true }); 
+      return ;
     }
+      this.CompanyService.createComapany(this.companyForm.value).subscribe({
+       next:()=>{},
+       complete:()=>{},
+       error:(err)=>{
+        if(err.status=='0'){
+          this.companyForm.setErrors({ server: true }); 
+        }
+        if(err.status=='400'){
+          this.companyForm.setErrors({ incorrect: true }); 
+        }
+        else{
+          this.companyForm.setErrors({ unknown: true }); 
+        }
+       }
+      })
   }
 
 

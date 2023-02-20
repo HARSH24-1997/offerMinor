@@ -1,34 +1,67 @@
-<div class="py-5" style="background-color: #FFEDE1;">
+<div class="py-5" style="background-color: #FFEDE1;height:100vh">
   <div class="container">
     <div class="row">
-      <div class="mx-auto col-lg-6 col-10 shadow p-5"  style="background-color: white">
+      <div class="mx-auto col-lg-6 col-10 shadow p-5" style="background-color: white">
         <h1 class="text-center">Create Company Panel</h1>
         <form [formGroup]="companyForm" (ngSubmit)="onFormSubmit($event)">
           <div class="mb-3">
             <label for="companyName1" class="form-label">Company Name</label>
-            <input type="text" class="form-control" id="companyName1" aria-describedby="emailHelp"  formControlName="companyName">
+            <input type="text" class="form-control" id="companyName1" aria-describedby="emailHelp"
+              formControlName="companyName">
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  formControlName="email">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              formControlName="email">
             <div id="emailHelp" class="form-text">Password and Username Will be Share on this email</div>
           </div>
           <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>
-            <input type="text" class="form-control" id="phone" aria-describedby="emailHelp"  formControlName="phone">
+            <input type="text" class="form-control" id="phone" aria-describedby="emailHelp" formControlName="phone">
           </div>
           <div class="mb-3">
             <label for="subdomain1" class="form-label">Subdomain</label>
-            <input type="text" class="form-control" id="subdomain1" aria-describedby="emailHelp" formControlName="subdomain">
+            <input type="text" class="form-control" id="subdomain1" aria-describedby="emailHelp"
+              formControlName="subdomain">
           </div>
           <div class="mb-3">
             <label for="subdomain1" class="form-label">Company Type</label>
-            <input type="text" class="form-control" id="companyType1" aria-describedby="emailHelp" formControlName="companyType">
+            <input type="text" class="form-control" id="companyType1" aria-describedby="emailHelp"
+              formControlName="companyType">
           </div>
           <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1"  formControlName="isActivate">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="isActivate">
             <label class="form-check-label" for="exampleCheck1">Activate Company</label>
           </div>
+          <ng-container *ngIf="companyForm.get('companyName')!.touched && companyForm.get('companyName')!.dirty">
+            <div class="alert alert-danger" role="alert"
+                *ngIf="companyForm.controls.companyName.errors">
+                Invalid Company Name
+            </div>
+        </ng-container>
+        <ng-container *ngIf="companyForm.get('email')!.touched && companyForm.get('email')!.dirty ">
+          <div class="alert alert-danger" role="alert"
+              *ngIf="companyForm.controls.email.errors">
+              Invalid Email
+          </div>
+      </ng-container>
+      <ng-container *ngIf="companyForm.get('phone')!.touched && companyForm.get('email')!.dirty ">
+        <div class="alert alert-danger" role="alert"
+            *ngIf="companyForm.controls.phone.errors">
+            Invalid Phone No.
+        </div>
+    </ng-container>
+          <ng-container *ngIf="companyForm.errors">
+            <div class="alert alert-danger" role="alert" *ngIf="companyForm.errors?.['server']">
+              Please Contact ThePeopleOrder 
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="companyForm.errors?.['incorrect']">
+              Wrong Inputs please check again !!
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="companyForm.errors?.['unknown']">
+              Please Check the input again !!
+            </div>
+          </ng-container>
           <button type="submit" class="btn" style="background-color: #FFDDC7;color:#FF8730">Create Company</button>
         </form>
       </div>
