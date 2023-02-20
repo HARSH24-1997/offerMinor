@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import {Location} from '@angular/common';
 
+
+var URL = ""
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
+var URL ="https://thepeopleorderserver.onrender.com"
+
 @Injectable({
   providedIn: 'root'
 })
@@ -52,7 +54,7 @@ export class EmployeesService {
   }
 
   getAllEmpoyees() {
-    return this.Http.get('http://localhost:9000/employee/getAll',{
+    return this.Http.get(`${URL}/employee/getAll`,{
       params:{
         id:JSON.parse(localStorage.getItem('user') as string)._id
       }
@@ -61,7 +63,7 @@ export class EmployeesService {
 
   getEmployeeById(query: any) {
     console.log(query)
-    return this.Http.get(`http://localhost:9000/employee/getById`,{
+    return this.Http.get(`${URL}/employee/getById`,{
       params:{
         id:query.id
       }
@@ -70,7 +72,7 @@ export class EmployeesService {
 
   createEmployee(query: any) {
     var companyStructure = this.validateEmployeeData(query);
-    return this.Http.post('http://localhost:9000/employee', companyStructure)
+    return this.Http.post(`${URL}/employee`, companyStructure)
   }
 
   updataEmployeeById(query: any,id:string,cname:string,c_id:string,email:string) {
@@ -79,6 +81,6 @@ export class EmployeesService {
     companyStructure.company_id=c_id
     companyStructure.companyName=cname
     companyStructure.companyDetails.email=email
-    return this.Http.put('http://localhost:9000/employee/updateUser', companyStructure)
+    return this.Http.put(`${URL}/employee/updateUser`, companyStructure)
   }
 }

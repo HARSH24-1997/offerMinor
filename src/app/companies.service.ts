@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
+var URL ="https://thepeopleorderserver.onrender.com"
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,14 +32,14 @@ export class CompaniesService {
   }
 
   getAllCompanies() {
-    return this.Http.get('http://localhost:9000/user/getAll', {
+    return this.Http.get(`${URL}/user/getAll`, {
       withCredentials: true
     })
   }
 
   getCompanyById(query: any) {
     console.log(query, "36")
-    return this.Http.get('http://localhost:9000/user/getById', {
+    return this.Http.get(`${URL}/user/getById`, {
       params: {
         id: query
       }
@@ -46,11 +49,11 @@ export class CompaniesService {
   createComapany(query: any) {
     var companyStructure = this.validateCompanyData(query);
     console.log(companyStructure, "343434");
-    return this.Http.post('http://localhost:9000/user', companyStructure)
+    return this.Http.post(`${URL}/user`, companyStructure)
   }
 
   updateCompanyInformation(_id: any, status: any) {
-    return this.Http.put('http://localhost:9000/user/updateStatus', { _id: _id, isActive: status }, {
+    return this.Http.put(`${URL}/user/updateStatus`, { _id: _id, isActive: status }, {
       headers: {
         "Authorization": "Bearer " + localStorage.getItem('token')
       }, withCredentials: true

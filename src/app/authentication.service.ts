@@ -4,6 +4,8 @@ import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+var URL = "https://thepeopleorderserver.onrender.com"
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) { }
 
   login(data: any) {
-    return this.http.post('http://localhost:9000/auth/login', {
+    return this.http.post(`${URL}/auth/login`, {
       username: data.userName,
       password: data.password
     }, {
@@ -36,7 +38,7 @@ export class AuthenticationService {
   }
 
   logOut() {
-    return this.http.get('http://localhost:9000/auth/logOut', {
+    return this.http.get(`${URL}/auth/logOut`, {
       withCredentials: true
     }).pipe(tap((val: any) => {
       localStorage.clear();
@@ -47,7 +49,7 @@ export class AuthenticationService {
   }
 
   getMe(value: string) {
-    return this.http.get('http://localhost:9000/user/getMe', {
+    return this.http.get(`${URL}/user/getMe`, {
       headers: {
         "Authorization": "Bearer " + value
       }, withCredentials: true
@@ -57,7 +59,7 @@ export class AuthenticationService {
   }
 
   authorizationCheck(value: string) {
-    return this.http.get('http://localhost:9000/auth/status', {
+    return this.http.get(`${URL}/auth/status`, {
       headers: {
         "Authorization": "Bearer " + value
       }, withCredentials: true
