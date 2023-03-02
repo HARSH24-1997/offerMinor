@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 
 var URL ="https://thepeopleorderserver.onrender.com"
+// var URL = "http://localhost:9000"
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,18 +17,17 @@ export class CompaniesService {
     var result = {
       companyName: '',
       email: '',
-      subdomain: '',
       companyType: '',
-      // createdBy:localStorage.get('User'),
-      isActive: false,
-      phone:''
+      createdBy:JSON.parse(localStorage.getItem('user') as string).companyName,
+      isActive: true,
+      phone:'',
+      expiryDate:''
     };
     result.companyName = query.companyName;
     result.email = query.email;
-    result.subdomain = query.subdomain;
     result.companyType = query.companyType;
-    result.isActive = query.isActive;
-    result.phone = query.phone
+    result.phone = query.phone;
+    result.expiryDate = query.expiryDate;
 
     return result
   }
@@ -54,6 +55,14 @@ export class CompaniesService {
 
   updateCompanyInformation(_id: any, status: any) {
     return this.Http.put(`${URL}/user/updateStatus`, { _id: _id, isActive: status }, {
+      headers: {
+        "Authorization": "Bearer " + localStorage.getItem('token')
+      }, withCredentials: true
+    })
+  }
+
+  updateCompanyInformationExpiryDate(_id: any, toChange: any) {
+    return this.Http.put(`${URL}/user/updateStatus`, { _id: _id, expiryDate:new Date(toChange) }, {
       headers: {
         "Authorization": "Bearer " + localStorage.getItem('token')
       }, withCredentials: true

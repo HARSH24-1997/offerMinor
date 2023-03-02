@@ -12,6 +12,7 @@ export class UserCreationPanelComponent {
   
   status:String = "";
   isLogin:Boolean = false;
+  dateValidator:string = new Date().toISOString();
   // isSuperAdmin:Boolean = localStorage.get('isSuperAdmin');
 
   companyForm = new FormGroup({
@@ -25,10 +26,8 @@ export class UserCreationPanelComponent {
       Validators.minLength(3),
       Validators.maxLength(40)
     ]),
-    subdomain: new FormControl('',[
+    expiryDate: new FormControl('',[
       Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(20)
     ]),
     companyType: new FormControl('',[
       Validators.required,
@@ -40,7 +39,7 @@ export class UserCreationPanelComponent {
       Validators.minLength(3),
       Validators.maxLength(10)
     ]),
-    isActivate: new FormControl('')
+    // isActivate: new FormControl('')
   })
   
 
@@ -50,6 +49,12 @@ export class UserCreationPanelComponent {
     event.preventDefault();
     if(this.companyForm.invalid){
       this.companyForm.setErrors({ incorrect: true }); 
+      return ;
+    }
+    if(this.companyForm.value.expiryDate){
+      if(new Date(this.companyForm.value.expiryDate).getTime()<=new Date().getTime()){
+        this.companyForm.setErrors({ date: true }); 
+      }
       return ;
     }
       this.CompanyService.createComapany(this.companyForm.value).subscribe({

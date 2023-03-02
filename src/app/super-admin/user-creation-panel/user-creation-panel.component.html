@@ -20,19 +20,18 @@
             <input type="text" class="form-control" id="phone" aria-describedby="emailHelp" formControlName="phone">
           </div>
           <div class="mb-3">
-            <label for="subdomain1" class="form-label">Subdomain</label>
-            <input type="text" class="form-control" id="subdomain1" aria-describedby="emailHelp"
-              formControlName="subdomain">
+            <label for="" class="form-label">License Expiry Date</label>
+            <input type="date" class="form-control" id="expiryDate" aria-describedby="emailHelp" formControlName="expiryDate">
           </div>
           <div class="mb-3">
             <label for="subdomain1" class="form-label">Company Type</label>
             <input type="text" class="form-control" id="companyType1" aria-describedby="emailHelp"
               formControlName="companyType">
           </div>
-          <div class="mb-3 form-check">
+          <!-- <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="isActivate">
             <label class="form-check-label" for="exampleCheck1">Activate Company</label>
-          </div>
+          </div> -->
           <ng-container *ngIf="companyForm.get('companyName')!.touched && companyForm.get('companyName')!.dirty">
             <div class="alert alert-danger" role="alert"
                 *ngIf="companyForm.controls.companyName.errors">
@@ -52,6 +51,9 @@
         </div>
     </ng-container>
           <ng-container *ngIf="companyForm.errors">
+            <div class="alert alert-danger" role="alert" *ngIf="companyForm.errors?.['date']">
+              License Date Can't be less than today date
+            </div>
             <div class="alert alert-danger" role="alert" *ngIf="companyForm.errors?.['server']">
               Please Contact ThePeopleOrder 
             </div>

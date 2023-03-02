@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { SuperAdminRoutingModule } from './super-admin-routing.module';
 import { SuperViewComponent } from './super-view/super-view.component';
@@ -19,6 +19,7 @@ import { ReportsComponent } from './reports/reports.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     SuperAdminRoutingModule
   ]
 })

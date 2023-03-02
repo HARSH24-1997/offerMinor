@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -30,6 +30,7 @@ import { AlertCompanyComponent } from './alert-company/alert-company.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     DashboardRoutingModule
   ]
 })

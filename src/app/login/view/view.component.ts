@@ -49,10 +49,10 @@ export class ViewComponent {
         localStorage.setItem('token',response.token)
         this.cookieService.set('jwttt',response.token);
         if (response.isSuperAdmin) {
-          window.location.assign("https://thepeopleorderdash.netlify.app/sAdmin")
+          window.location.assign("")
         }
         else {
-          window.location.assign("https://thepeopleorderdash.netlify.app/dashboard")
+          window.location.assign("")
         }         
       },
       complete:()=>{

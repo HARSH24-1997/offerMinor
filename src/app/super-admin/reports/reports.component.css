@@ -1,0 +1,15 @@
+.table-scroll tbody {
+    position: absolute;
+    overflow-y: scroll;
+    height: 200px;
+}
+
+.table-scroll tr {
+    width: 75vw;
+    table-layout: fixed;
+    display: inline-table;
+}
+
+.table-scroll thead > tr > th {
+    border: none;
+}

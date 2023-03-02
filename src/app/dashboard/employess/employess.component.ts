@@ -8,8 +8,10 @@ import { EmployeesService } from 'src/app/employees.service';
   styleUrls: ['./employess.component.css']
 })
 export class EmployessComponent {
-
+  
+  searchText:any = '';
   employees:any=[];
+  tempEmployees:any=[];
   constructor(private router:Router,private employeeService:EmployeesService){}
 
   ngOnInit(){
@@ -30,15 +32,29 @@ export class EmployessComponent {
       return "Joined and Leave"
     }
     if(val==5){
-      return "Abscord"
+      return "Abscond"
     }
     return "Offer Accepted"
+  }
+
+  getSearchangeonRegex(){
+    if(this.searchText==""){
+      this.employees = this.tempEmployees;
+    }
+    console.log(this.searchText);
+    var temp:any  = []
+    this.tempEmployees.map((comp:any,index:any) =>{
+     if(comp.name.toLowerCase().includes(this.searchText.toLowerCase())){
+        temp.push(comp);
+     }
+     this.employees = temp;
+    })
   }
 
   getAllEmployees(){
     this.employeeService.getAllEmpoyees().subscribe((resp: any)=>{
       this.employees = resp.data;
-      console.log(this.employees,"21")
+      this.tempEmployees = resp.data;
     })
   }
 
