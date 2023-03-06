@@ -23,7 +23,14 @@ export class AppComponent {
       },
       error:(err)=>{
         this.cookieService.deleteAll()
+        console.log("window.location.pathname",window.location.pathname)
+      if(window.location.pathname=="/newUser"){
+        console.log("dfdfdf")
+        this.router.navigateByUrl('/newUser');
+
+      }else{
         this.router.navigateByUrl('/login');
+      }
       }
     }
     )

@@ -9,12 +9,15 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SuperAdminModule } from './super-admin/super-admin.module';
+import { CompanyCreationModule } from './company-creation/company-creation.module';
+import { CompanyInfoComponent } from './company-info/company-info.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
+    CompanyInfoComponent,
     // PanelComponent
   ],
   imports: [
@@ -25,6 +28,7 @@ import { SuperAdminModule } from './super-admin/super-admin.module';
     AppRoutingModule,
     LoginModule,
     SuperAdminModule,
+    CompanyCreationModule
     // BrowserAnimationsModule,
     // LayoutModule,
     // MatToolbarModule,

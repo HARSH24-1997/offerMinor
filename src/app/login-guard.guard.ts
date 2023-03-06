@@ -13,7 +13,6 @@ export class LoginGuardGuard implements CanLoad {
   constructor(private activeRoute:ActivatedRoute,private authservice:AuthenticationService,private router:Router){}  canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-     console.log(this.authservice.signedOut.value,"3434");
      return true;
   }
 }

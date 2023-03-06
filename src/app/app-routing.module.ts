@@ -5,9 +5,11 @@ import { LoginGuardGuard } from './login-guard.guard';
 
 
 const LoginModule = () => import('./login/login.module').then(x => x.LoginModule);
+const NewModule = () => import('./company-creation/company-creation.module').then(x => x.CompanyCreationModule);
 const SuperAdminModule = () => import('./super-admin/super-admin.module').then(x => x.SuperAdminModule);
 const DashboardModule = () => import('./dashboard/dashboard.module').then(x => x.DashboardModule);
 import { HomepageComponent } from './homepage/homepage.component';
+import { CompanyInfoComponent } from './company-info/company-info.component';
 
 
 const extraOptions: ExtraOptions = {
@@ -34,6 +36,10 @@ const routes: Routes = [
     path: 'dashboard',
     canLoad: [AuthgardGuard],
     loadChildren: DashboardModule
+  },
+  {
+    path: 'newUser',
+     component: CompanyInfoComponent
   }
 ];
 

@@ -4,7 +4,7 @@
         <div class="card">
           <div class="card-body p-4">
             <h2> <b>Companies</b> </h2>
-           <h4></h4>
+           <h4>{{companyCount}}</h4>
           </div>
         </div>
       </div>
@@ -12,7 +12,7 @@
         <div class="card">
           <div class="card-body p-4">
             <h2> <b>Total Offers </b> </h2>
-            <h4></h4>
+            <h4>{{employeeCount}}</h4>
             <!-- <p>I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p> -->
             <!-- <p class="mb-0 lead"> <a href="#">Read more</a> </p> -->
           </div>
@@ -22,15 +22,17 @@
         <div class="card">
           <div class="card-body p-4">
             <h2> <b>Total Caught</b> </h2>
-            <h4></h4>
+            <h4>0</h4>
             <!-- <p>I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me.</p> -->
             <!-- <p class="mb-0 lead"> <a href="#">Read more</a> </p> -->
           </div>
         </div>
       </div>
     </div>
-    <div class="m-5 p-5">
-    <table class="table table-scroll table-striped">
+    <div class="m-2 p-5">
+      <h1><b>Analytics </b></h1>
+      <h2>Company by Offers</h2>
+    <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -39,14 +41,33 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td >1</td>
-            <td>Mark</td>
-           
+          <tr *ngFor="let data of cList; let i=index;">
+            <td>{{i+1}}</td>
+            <td>{{data._id.companyName}}</td>
+            <td>{{data.count}}</td>
           </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="m-2 p-5">
+      <h2>New Client Information</h2>
+    <table class="table  table-striped">
+        <thead>
           <tr>
-            <td >2</td>
-            <td>Jacob</td>
+            <th scope="col">#</th>
+            <th scope="col">Company</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of tempUserList; let i=index;">
+            <td>{{i+1}}</td>
+            <td>{{data.companyName}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.phone}}</td>
+            <td>{{data.type}}</td>
           </tr>
         </tbody>
       </table>

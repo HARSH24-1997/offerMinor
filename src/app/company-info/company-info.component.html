@@ -1,0 +1,64 @@
+<div class="py-5" style="background-color: #FFEDE1;height:100vh">
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto col-lg-6 col-10 shadow p-5" style="background-color: white">
+          <h1 class="text-center">New User Info</h1>
+          <form [formGroup]="companyForm" (ngSubmit)="onFormSubmit($event)">
+            <div class="mb-3">
+              <label for="companyName1" class="form-label">Company Name</label>
+              <input type="text" class="form-control" id="companyName1" aria-describedby="emailHelp"
+                formControlName="companyName">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                formControlName="email">
+              <div id="emailHelp" class="form-text">Password and Username Will be Share on this email</div>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="text" class="form-control" id="phone" aria-describedby="emailHelp" formControlName="phone">
+            </div>
+            <div class="mb-3">
+              <label for="subdomain1" class="form-label">Company Type</label>
+              <input type="text" class="form-control" id="companyType1" aria-describedby="emailHelp"
+                formControlName="companyType">
+            </div>
+            <ng-container *ngIf="companyForm.get('companyName')!.touched && companyForm.get('companyName')!.dirty">
+              <div class="alert alert-danger" role="alert"
+                  *ngIf="companyForm.controls.companyName.errors">
+                  Invalid Company Name
+              </div>
+          </ng-container>
+          <ng-container *ngIf="companyForm.get('email')!.touched && companyForm.get('email')!.dirty ">
+            <div class="alert alert-danger" role="alert"
+                *ngIf="companyForm.controls.email.errors">
+                Invalid Email
+            </div>
+        </ng-container>
+        <ng-container *ngIf="companyForm.get('phone')!.touched && companyForm.get('email')!.dirty ">
+          <div class="alert alert-danger" role="alert"
+              *ngIf="companyForm.controls.phone.errors">
+              Invalid Phone No.
+          </div>
+      </ng-container>
+            <ng-container *ngIf="companyForm.errors">
+              <div class="alert alert-danger" role="alert" *ngIf="companyForm.errors?.['server']">
+                Please Contact ThePeopleOrder 
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="companyForm.errors?.['incorrect']">
+                Wrong Inputs please check again !!
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="companyForm.errors?.['unknown']">
+                Please Check the input again !!
+              </div>
+              <div class="alert alert-danger" role="success" *ngIf="">
+               Thank You For Choosing Us,Our Team will Contact You Soon !!!!
+              </div>
+            </ng-container>
+            <button type="submit" class="btn" style="background-color: #FFDDC7;color:#FF8730">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
