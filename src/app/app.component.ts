@@ -25,7 +25,6 @@ export class AppComponent {
         this.cookieService.deleteAll()
         console.log("window.location.pathname",window.location.pathname)
       if(window.location.pathname=="/newUser"){
-        console.log("dfdfdf")
         this.router.navigateByUrl('/newUser');
 
       }else{

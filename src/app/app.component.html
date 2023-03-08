@@ -15,7 +15,7 @@
         <li class="nav-item" *ngIf="!superAdmin"> <a class="nav-link" routerLink="/dashboard">Employees</a> </li>
         <li class="nav-item" *ngIf="!superAdmin"> <a class="nav-link" routerLink="/dashboard/Profile">Profile</a> </li>
         <li class="nav-item" *ngIf="superAdmin"> <a class="nav-link" routerLink="/sAdmin/createCompanies">Add Companies</a> </li>
-        <li class="nav-item" *ngIf="superAdmin"> <a class="nav-link" href="/sAdmin/report">Reports</a> </li>
+        <li class="nav-item" *ngIf="superAdmin"> <a class="nav-link" routerLink="/sAdmin/reportCompanies">Reports</a> </li>
         <li class="nav-item" *ngIf="superAdmin"> <a class="nav-link" routerLink="/sAdmin">Companies</a> </li>
         <ng-container *ngIf="signedIn">
           <li class="nav-item"> <a class="nav-link"  (click)="logOut()">Log Out</a> </li>

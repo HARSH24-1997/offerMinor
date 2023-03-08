@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SuperAdminModule } from './super-admin/super-admin.module';
-import { CompanyCreationModule } from './company-creation/company-creation.module';
+// import { CompanyCreationModule } from './company-creation/company-creation.module';
 import { CompanyInfoComponent } from './company-info/company-info.component';
 
 
@@ -28,7 +28,7 @@ import { CompanyInfoComponent } from './company-info/company-info.component';
     AppRoutingModule,
     LoginModule,
     SuperAdminModule,
-    CompanyCreationModule
+    // CompanyCreationModule
     // BrowserAnimationsModule,
     // LayoutModule,
     // MatToolbarModule,

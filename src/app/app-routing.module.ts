@@ -23,6 +23,10 @@ const routes: Routes = [
     component: HomepageComponent
   },
   {
+    path: 'newUser',
+    component: CompanyInfoComponent
+  },
+  {
     path: 'login',
     canLoad: [LoginGuardGuard],
     loadChildren: LoginModule
@@ -30,17 +34,14 @@ const routes: Routes = [
   {
     path: 'sAdmin',
     canLoad: [AuthgardGuard],
-    loadChildren: () => import('./super-admin/super-admin.module').then(x => x.SuperAdminModule)
+    loadChildren: SuperAdminModule
   },
   {
     path: 'dashboard',
     canLoad: [AuthgardGuard],
     loadChildren: DashboardModule
   },
-  {
-    path: 'newUser',
-     component: CompanyInfoComponent
-  }
+  
 ];
 
 @NgModule({
