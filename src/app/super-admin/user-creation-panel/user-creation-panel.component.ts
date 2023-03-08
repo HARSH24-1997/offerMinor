@@ -48,19 +48,24 @@ export class UserCreationPanelComponent {
   onFormSubmit = (event:any)=>{
     event.preventDefault();
     if(this.companyForm.invalid){
+    
       this.companyForm.setErrors({ incorrect: true }); 
       return ;
     }
     if(this.companyForm.value.expiryDate){
+
       if(new Date(this.companyForm.value.expiryDate).getTime()<=new Date().getTime()){
         this.companyForm.setErrors({ date: true }); 
+        return;
       }
-      return ;
     }
       this.CompanyService.createComapany(this.companyForm.value).subscribe({
-       next:()=>{},
+       next:()=>{
+
+       },
        complete:()=>{},
        error:(err)=>{
+
         if(err.status=='0'){
           this.companyForm.setErrors({ server: true }); 
         }
